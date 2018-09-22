@@ -274,3 +274,36 @@ footer {
    padding: 30px;
    margin-top: 20px;
 }
+
+/*media queries*/
+@media (max-width: 800px) {
+header #logo, header nav, header nav li, #cards .container .card{
+  float: none;
+  text-align: center;
+  width: auto;
+}
+
+#disp{
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+#cards .card img {
+  height: 150px;
+}
+.center{
+  width: auto;
+}
+
+.split.left{
+  width: 0;
+
+}
+.split.right{
+  padding-top: 10px;
+  width: 100%;
+}
+#payment{
+  width: 60%;
+}
+}
