@@ -5,7 +5,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
 }
-
+/*Global*/
 .container {
   width: 80%;
   margin: auto;
@@ -64,11 +64,12 @@ header nav {
   margin-top: 10px;
 }
 
+
+/*menu*/
 .opasity{
   opacity: 0.9;
 }
 
-/*menu*/
 #op{
   min-height: 400px;
   background: url("../img/dec6.jpg");
