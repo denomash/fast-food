@@ -237,7 +237,6 @@ span.psw {
     padding-top: 16px;
 }
 
-
 /* Tables */
 #content {
     border-collapse: collapse;
@@ -264,7 +263,6 @@ span.psw {
     background-color: #b64a23;
     color: white;
 }
-
 
 /*footer*/
 footer {
@@ -303,7 +301,9 @@ header #logo, header nav, header nav li, #cards .container .card{
   padding-top: 10px;
   width: 100%;
 }
+
 #payment{
   width: 60%;
 }
+
 }
