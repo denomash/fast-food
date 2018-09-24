@@ -193,6 +193,18 @@ button:hover {
   font-size: 40px;
 }
 
+#sidereg{
+  margin: auto;
+  float: left;
+  color: black;
+  padding-top: 30px;
+}
+
+#sidereg h2{
+  text-align: center;
+  font-size: 40px;
+}
+
 .fi{
   background-color:#f1f1f1;
 }
