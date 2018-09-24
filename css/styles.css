@@ -14,6 +14,13 @@ body {
   min-width: 150px;
 }
 
+.center{
+  margin: auto;
+  width: 60%;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
 .active {
   color: #b64a23;
   font-weight: bold;
@@ -228,6 +235,34 @@ input[type=text], input[type=password] {
 span.psw {
     float: right;
     padding-top: 16px;
+}
+
+
+/* Tables */
+#content {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#content td, #content th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#content tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#content tr:hover {
+  background-color: #ddd;
+}
+
+#content th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #b64a23;
+    color: white;
 }
 
 /*footer*/
