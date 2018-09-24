@@ -79,7 +79,8 @@ header nav {
 
 #op{
   min-height: 400px;
-  background: url("../img/dec6.jpg");
+  background: url("../img/B.jpg") no-repeat -30px;
+  background-size: 1400px 700px;
   text-align: center;
 }
 
