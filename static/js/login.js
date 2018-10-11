@@ -30,8 +30,8 @@ function login(e) {
 		console.log(token);
 		localStorage.setItem('x-access-token', token);
 		setAuthorizationHeader(token);
-		alert('Logged in successfull')		
 		window.location.href = "menu.html";
+		alert('Logged in successfull')		
 	})
 }
 
