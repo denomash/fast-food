@@ -1,8 +1,8 @@
 
 
-document.getElementById('food').addEventListener('submit', register);
+const reg = document.getElementById('reg_form')
 
-function register(e) {
+reg.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	var myHeaders = new Headers({
@@ -24,7 +24,9 @@ function register(e) {
 	fetch(myRequest, myInit)
 	.then((res) => res.json())
 	.then((data) => {
-		console.log(data);
+		message = data.message;
+		console.log(message);
 		alert('Register successfull')
+		window.location.href = "menu.html";
 	})
-}
+})
