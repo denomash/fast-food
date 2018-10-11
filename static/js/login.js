@@ -28,20 +28,20 @@ function login(e) {
 	.then((data) => {
 
 		if(data.Message.token && data.Message.role == 'admin'){
+			window.location = "./admin/orders.html";
 			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
 			setAuthorizationHeader(token);
 
-			window.location.replace("admin/orders.html");
 			alert('Logged in successfull');
 
 			
 		} else if (data.Message.token && data.Message.role == 'client'){
+			window.location = "./menu.html";
 			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
 			setAuthorizationHeader(token);
 
-			window.location.replace("menu.html");
 			alert('Logged in successfull')
 		} else {
 			console.log(data)
