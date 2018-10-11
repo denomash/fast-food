@@ -26,12 +26,19 @@ function login(e) {
 	fetch(myRequest, myInit)
 	.then((res) => res.json())
 	.then((data) => {
-		token = data.token;
-		console.log(token);
-		localStorage.setItem('x-access-token', token);
-		setAuthorizationHeader(token);
-		window.location.href = "menu.html";
-		alert('Logged in successfull')		
+			
+		if(data.token){
+			token = data.token;
+			localStorage.setItem('x-access-token', token);
+			setAuthorizationHeader(token);
+			window.location.href = "menu.html";
+			alert('Logged in successfull')			
+		}
+		else{
+			console.log(data)
+			message = data.Message;
+			alert(message)
+		}
 	})
 }
 
