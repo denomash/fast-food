@@ -27,6 +27,6 @@ reg.addEventListener('submit', (e) => {
 		message = data.message;
 		console.log(message);
 		alert('Register successfull')
-		window.location.href = "menu.html";
+		window.location.href = "login.html";
 	})
 })
