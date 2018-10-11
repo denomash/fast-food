@@ -26,9 +26,8 @@ function login(e) {
 	fetch(myRequest, myInit)
 	.then((res) => res.json())
 	.then((data) => {
-		
+
 		if(data.Message.token && data.Message.role == 'admin'){
-			console.log("blahblah!!!")
 			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
 			setAuthorizationHeader(token);
@@ -38,7 +37,6 @@ function login(e) {
 
 			
 		} else if (data.Message.token && data.Message.role == 'client'){
-			console.log("bhjbshbc")
 			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
 			setAuthorizationHeader(token);
