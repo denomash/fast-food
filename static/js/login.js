@@ -26,15 +26,26 @@ function login(e) {
 	fetch(myRequest, myInit)
 	.then((res) => res.json())
 	.then((data) => {
-			
-		if(data.token){
-			token = data.token;
+		
+		if(data.Message.token && data.Message.role == 'admin'){
+			console.log("blahblah!!!")
+			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
 			setAuthorizationHeader(token);
-			window.location.href = "menu.html";
-			alert('Logged in successfull')			
-		}
-		else{
+
+			window.location.replace("admin/orders.html");
+			alert('Logged in successfull');
+
+			
+		} else if (data.Message.token && data.Message.role == 'client'){
+			console.log("bhjbshbc")
+			token = data.Message.token;
+			localStorage.setItem('x-access-token', token);
+			setAuthorizationHeader(token);
+
+			window.location.replace("menu.html");
+			alert('Logged in successfull')
+		} else {
 			console.log(data)
 			message = data.Message;
 			alert(message)
