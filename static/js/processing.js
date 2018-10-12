@@ -1,35 +1,49 @@
 
-function makeorder() {
+
+document.getElementById('processing').addEventListener('submit', makeorder)
+
+
+
+function makeorder(e) {
+	e.preventDefault();
 
 	// Get stored token
 	var stored_token = localStorage.getItem('x-access-token');
-
+	
 	var myHeaders = new Headers({
-	'Content-Type': 'application/json'
+		"Access-Control-Allow-Origin": "*/*",
+		"Content-Type": "application/json; charset=utf-8",
+		"x-access-token": stored_token
 	});
+
 	var myInit = {
-		method: 'POST',
+		method: 'post',
 	    headers: myHeaders,
+		mode: 'cors',
+		cache: 'default',
 	    body: JSON.stringify({
-	    	meal_id: document.getElementById('meal_id').value,
+	    	mealId: document.getElementById('meal_id').value,
 	    	quantity: document.getElementById('quantity').value,
 	    	address: document.getElementById('address').value
 	    	
 	    })
 	};
-	var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/users/orders');
-	fetch(myRequest, myInit)
-	.then((res) => res.json())
-	.then((data) => {		
 
+	console.log(myInit.body)
+
+	var myRequest = new Request('http://localhost:5000/api/v2/users/orders', myInit);
+	fetch(myRequest)
+	.then(res => res.json())
+	.then(data => {
 		if(stored_token){
-			console.log(stored_token)
-			// location.href = "./menu.html";
-			alert('Order made successfully');
+			location.href = "./menu.html";
+			Message = data.Message
+			alert(Message);
 
 			
 		} else {
 			alert("Please login to place an order")
 		}
 	})
+	.catch(err => console.log(err))
 }
