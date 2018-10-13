@@ -8,36 +8,35 @@
     <meta name="author" content="Dennis Macharia">
     <title>Fast-Food-Fast | Login</title>
     <link rel="stylesheet" href="../static/css/styles.css">
-    <script type="text/javascript" src="../javascript/validation.js"></script>
 
   </head>
   <body>
 
       <section>
       <div class="split left">
-      	<div id="appeal">
-      	<div class="container">
-      	  <h1>Affordable quality fast food</h1>
-      	  <p>Have the privilege of getting the best fast food in town fast.</p>
-      	</div>
+        <div id="appeal">
+        <div class="container">
+          <h1>Affordable quality fast food</h1>
+          <p>Have the privilege of getting the best fast food in town fast.</p>
+        </div>
       </div>
     </div>
         <div class="split right">       
           
           <div id="sidelog">
             <h2>Login</h2>
-            <form>
-            <div class="container">
-              
-              <label for="Email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" required="">
+            <form id="log">
+              <div class="container">
+                
+                <label for="Email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" id="email" required>
 
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" required="">
-        
-              <button type="submit">Login</button>
-            </div>
-          </form>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" id="password" required>
+          
+                <button type="submit">Login</button>
+              </div>
+            </form>
 
             <div class="fi">
               <div class="container">
@@ -50,5 +49,6 @@
         </div>
       </div>
     </section>
+    <script src="../static/js/login.js" charset="utf-8"></script>
   </body>
-  </html>
+</html>

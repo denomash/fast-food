@@ -13,33 +13,35 @@
 
       <section>
       <div class="split left">
-      	<div id="appeal">
-      	<div class="container">
-      	  <h1>Affordable quality fast food</h1>
-      	  <p>Have the privilege of getting the best fast food in town fast.</p>
-      	</div>
-      		
-      	</div>
-      </div>
-      <div class="split right">      	
+        <div id="appeal">
+        <div class="container">
+          <h1>Affordable quality fast food</h1>
+          <p>Have the privilege of getting the best fast food in town fast.</p>
+        </div>
           
+        </div>
+      </div>
+      <div class="split right">          
           <div id="sidereg">
-          	<h2>Register</h2>
-          	<form>  
-            <div class="container">
-              <label ><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" required>
+            <h2>Register</h2>
+            <form id="reg_form" action="">  
+              <div id="food" class="container">
+                <label><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" id="username" required>
 
-              <label for="Email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" required>
+                <label><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" id="email" required>
 
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" required>
-        
-              <button type="submit">Register</button>
-            </div>
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" id="password" required>
+
+                <label><b>Confirm Password</b></label>
+                <input type="password" placeholder="Enter Confirm Password" id="confirm_password" required>
+          
+                <button type="submit"  id="send">Register</button>
+              </div>
           </form>
-
+          
             <div>
               <div class="container" style="background-color:#f1f1f1">
               <a href="login.html">
@@ -51,6 +53,6 @@
           </div>
       </div>
     </section> 
-
+    <script type="text/javascript" src="../static/js/signup.js"></script>
   </body>
 </html>
