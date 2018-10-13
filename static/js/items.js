@@ -1,15 +1,20 @@
 
+	// Get stored token
+var stored_token = localStorage.getItem('x-access-token');
 
 var myHeaders = new Headers({
-    'Content-Type': 'application/json'
-});
+		"Access-Control-Allow-Origin": "*/*",
+		"Content-Type": "application/json; charset=utf-8",
+		"x-access-token": stored_token
+	});
+
 var myInit = { method: 'GET',
                headers: myHeaders,
                mode: 'cors',
                cache: 'default' };
 
 
-var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/menu');
+var myRequest = new Request('http://localhost:5000/api/v2/menu');
 fetch(myRequest,myInit)
 .then((resp) =>	resp.json())
 .then((data) => {
@@ -38,11 +43,3 @@ fetch(myRequest,myInit)
 	});
 	document.getElementById('content').innerHTML = output;
 })
-
-function logout() {
-	// Remove data
-	localStorage.removeItem('x-access-token');
-	localStorage.removeItem('role');
-
-	window.location = "../login.html";
-}
