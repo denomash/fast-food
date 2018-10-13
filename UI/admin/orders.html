@@ -8,7 +8,6 @@
     <meta name="author" content="Dennis Macharia">
     <title>Fast-Food-Fast | Orders</title>
     <link rel="stylesheet" href="../../static/css/styles.css">
-    <script type="text/javascript" src="../../javascript/validation.js"></script>
   </head>
   <body>
    <header>
@@ -23,96 +22,17 @@
            <li><a href="items.html">Items</a></li>
            <li class="active"><a href="orders.html">Orders</a></li>
            <li><a href="confirm.html">Confirm</a></li>
+           <li onclick="logout()">logout</li>
          </ul>
        </nav>
      </div>
    </header>
    <section>        
     <div class="center">
-         <table id="content">
-      <tr>
-        <th>Image</th>
-        <th>Order</th>
-        <th>Order No</th>
-        <th>Quantity</th>
-        <th>Total Amount</th>
-        <th>Accept</th>
-        <th>Decline</th>
-      </tr>
-      <tr>
-        <td><img src="../../static/img/bugger.jpeg"  height="60" width="100"</td>
-        <td>Hamburger</td>
-        <td>5451</td>
-        <td>3</td>
-        <td>500</td>
-        <td><a href="" class="btn" onclick="Accept()"><img src="../../static/img/acc.png"  height="40" width="40"></a></td>
-        <td><a href="" class="btn" onclick="Decline()"><img src="../../static/img/decline.png"  height="40" width="40"></a></td>
-      </tr>
-      <tr>
-        <td><img src="../../static/img/fries.jpg"  height="60" width="100"></td>
-        <td>Fries</td>
-        <td>46465</td>
-        <td>6</td>
-        <td>750</td>
-        <td><a href="" class="btn" onclick="Accept()"><img src="../../static/img/acc.png"  height="40" width="40"></a></td>
-        <td><a href="" class="btn" onclick="Decline()"><img src="../../static/img/decline.png"  height="40" width="40"></a></td>
-      </tr>
-      <tr>
-        <td><img src="../../static/img/pizza.jpg"  height="60" width="100"></td>
-        <td>Pizza</td>
-        <td>25</td>
-        <td>454</td>
-        <td>230</td>
-        <td><a href="" class="btn" onclick="Accept()"><img src="../../static/img/acc.png"  height="40" width="40"></a></td>
-        <td><a href="" class="btn" onclick="Decline()"><img src="../../static/img/decline.png"  height="40" width="40"></a></td>
-      </tr>
-      <tr>
-        <td><img src="../../static/img/kebab.jpeg"  height="60" width="100"></td>
-        <td>Kebab</td>
-        <td>126</td>
-        <td>2</td>
-        <td>40</td>
-        <td><a href="" class="btn" onclick="Accept()"><img src="../../static/img/acc.png"  height="40" width="40"></a></td>
-        <td><a href="" class="btn" onclick="Decline()"><img src="../../static/img/decline.png"  height="40" width="40"></a></td>
-      </tr>
-      <tr>
-        <td><img src="../../static/img/sandwich.jpeg"  height="60" width="100"></td>
-        <td>Sandwich</td>
-        <td>152</td>
-        <td>1</td>
-        <td>20</td>
-        <td><a href="" class="btn" onclick="Accept()"><img src="../../static/img/acc.png"  height="40" width="40"></a></td>
-        <td><a href="" class="btn" onclick="Decline()"><img src="../../static/img/decline.png"  height="40" width="40"></a></td>
-      </tr>
-      <tr>
-        <td><img src="../../static/img/mafin.jpeg"  height="60" width="100"></td>
-        <td>Maffins</td>
-        <td>54</td>
-        <td>2</td>
-        <td>150</td>
-        <td><a href="" class="btn" onclick="Accept()"><img src="../../static/img/acc.png"  height="40" width="40"></a></td>
-        <td><a href="" class="btn" onclick="Decline()"><img src="../../static/img/decline.png"  height="40" width="40"></a></td>
-      </tr>
-      <tr>
-        <td><img src="../../static/img/friedchicken.jpeg"  height="60" width="100"></td>
-        <td>Fried chicken</td>
-        <td>154</td>
-        <td>1</td>
-        <td>50</td>
-        <td><a href="" class="btn" onclick="Accept()"><img src="../../static/img/acc.png"  height="40" width="40"></a></td>
-        <td><a href="" class="btn" onclick="Decline()"><img src="../../static/img/decline.png"  height="40" width="40"></a></td>
-      </tr>
-      <tr>
-        <td><img src="../../static/img/donuts.jpg"  height="60" width="100"></td>
-        <td>Donuts</td>
-        <td>454</td>
-        <td>10</td>
-        <td>1000</td>
-        <td><a href="" class="btn" onclick="Accept()"><img src="../../static/img/acc.png"  height="40" width="40"></a></td>
-        <td><a href="" class="btn" onclick="Decline()"><img src="../../static/img/decline.png"  height="40" width="40"></a></td>
-      </tr>
-    </table>
+      <table id="content">
+      </table>
     </div>
-   </section>
+   </section>   
+  <script type="text/javascript" src="../../static/js/adminorders.js"></script>
   </body>
 </html>

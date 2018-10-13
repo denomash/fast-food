@@ -38,3 +38,10 @@ fetch(myRequest,myInit)
 	});
 	document.getElementById('content').innerHTML = output;
 })
+
+function logout() {
+	// Remove data
+	localStorage.removeItem('x-access-token');
+
+	window.location = "../login.html";
+}
