@@ -21,8 +21,8 @@ This is web application for ordering fast foods.
 * Admin can mark orders as complete
 
 ## screenshot
-![showcase](./static/img/showcase.png)
+![showcase](./static-v1/img/showcase.png)
 
 **Github pages link**
 
-https://denomash.github.io/fast-food/UI/menu.html
+https://denomash.github.io/fast-food/UI-v1/menu.html
