@@ -28,27 +28,30 @@
    </header>
    <section>        
     <div  class="center">
-      <form>
-        <label><b>Food Item</b></label>
-        <input type="text" placeholder="Food Item" required>
+      <form id="processing">
+        <label><b>MealId</b></label>
+        <input type="text" placeholder="Enter MealId" id="meal_id" required>
 
         <label><b>Quantity</b></label>
-        <input type="text" placeholder="Enter Quantity" required>
+        <input type="text" placeholder="Enter Quantity" id="quantity" required>
 
         <label><b>Address</b></label>
-        <input type="text" placeholder="Enter the address to be delivered" required>
+        <input type="text" placeholder="Enter the address of delivery" id="address" required>
+        
+        <div class="center" id="payment">
+           <h2>Mode of payment</h2>
+           <input type="radio" name="pay" value="mpesa" required>M-pesa<br>
+           <input type="radio" name="pay" value="mastercard" required>MASTER CARD<br>
+           <input type="radio" name="pay" value="mastercard" required>Cash on delivery<br>
+           <br>
+           <div>
+             <button type="submit">MAKE PAYMENT</button>
+           </div>
+        </div>
+        
       </form>
     </div>
-   </section>
-   <section class="center" id="payment">
-     <h2>Mode of payment</h2>
-     <input type="radio" name="pay" value="mpesa">M-pesa<br>
-     <input type="radio" name="pay" value="mastercard">MASTER CARD<br>
-     <input type="radio" name="pay" value="mastercard">Cash on delivery<br>
-     <br>
-     <div class="center">
-       <button type="submit">MAKE PAYMENT</button>
-     </div>
-   </section>
+   </section>   
+  <script type="text/javascript" src="../static/js/processing.js"></script>
   </body>
 </html>
