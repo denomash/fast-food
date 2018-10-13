@@ -31,6 +31,7 @@ function login(e) {
 			window.location = "./admin/orders.html";
 			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
+			localStorage.setItem('role', data.Message.role);
 			setAuthorizationHeader(token);
 
 			alert('Logged in successfull');
@@ -40,6 +41,7 @@ function login(e) {
 			window.location = "./menu.html";
 			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
+			localStorage.setItem('role', data.Message.role);
 			setAuthorizationHeader(token);
 
 			alert('Logged in successfull')

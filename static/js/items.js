@@ -42,6 +42,7 @@ fetch(myRequest,myInit)
 function logout() {
 	// Remove data
 	localStorage.removeItem('x-access-token');
+	localStorage.removeItem('role');
 
 	window.location = "../login.html";
 }
