@@ -79,7 +79,8 @@ header nav {
 
 #op{
   min-height: 400px;
-  background: url("../img/dec6.jpg");
+  background: url("../img/B.jpg") no-repeat -30px;
+  background-size: 1400px 700px;
   text-align: center;
 }
 
@@ -109,6 +110,7 @@ header nav {
   margin: auto;
   min-width: 150px;
 }
+
 #cards b {
   font-size: 20px;
 }
@@ -237,7 +239,6 @@ span.psw {
     padding-top: 16px;
 }
 
-
 /* Tables */
 #content {
     border-collapse: collapse;
@@ -264,7 +265,6 @@ span.psw {
     background-color: #b64a23;
     color: white;
 }
-
 
 /*footer*/
 footer {
@@ -303,7 +303,9 @@ header #logo, header nav, header nav li, #cards .container .card{
   padding-top: 10px;
   width: 100%;
 }
+
 #payment{
   width: 60%;
 }
+
 }
