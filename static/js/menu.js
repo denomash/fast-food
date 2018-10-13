@@ -9,7 +9,7 @@ var myInit = { method: 'GET',
                cache: 'default' };
 
 function order() {
-    location.href = "./processing.html";
+    location.href = "processing.html";
 }
 // Get stored token
 var stored_token = localStorage.getItem('x-access-token');
