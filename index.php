@@ -1,1 +1,1 @@
-<?php include_once("./UI/menu.html"); ?>
+<?php include_once("index.html"); ?>

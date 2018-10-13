@@ -36,7 +36,7 @@ function makeorder(e) {
 	.then(res => res.json())
 	.then(data => {
 		if(stored_token){
-			location.href = "./menu.html";
+			location.href = "../index.html";
 			Message = data.Message
 			alert(Message);
 

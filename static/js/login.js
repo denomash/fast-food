@@ -38,7 +38,7 @@ function login(e) {
 
 			
 		} else if (data.Message.token && data.Message.role == 'client'){
-			window.location = "./menu.html";
+			window.location = "../index.html";
 			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
 			localStorage.setItem('role', data.Message.role);

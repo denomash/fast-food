@@ -9,7 +9,7 @@ var myInit = { method: 'GET',
                cache: 'default' };
 
 function order() {
-    location.href = "processing.html";
+    location.href = "UI/processing.html";
 }
 // Get stored token
 var stored_token = localStorage.getItem('x-access-token');
@@ -55,6 +55,6 @@ function logout() {
 	localStorage.removeItem('x-access-token');
 	localStorage.removeItem('role');
 
-	window.location = "./login.html";
+	window.location = "UI/login.html";
 }
 
