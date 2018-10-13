@@ -30,7 +30,7 @@ function addmeal(e) {
 
 	console.log(myInit.body)
 
-	var myRequest = new Request('http://localhost:5000/api/v2/menu', myInit);
+	var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/menu', myInit);
 	fetch(myRequest)
 	.then(res => res.json())
 	.then(data => {

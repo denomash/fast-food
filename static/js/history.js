@@ -14,12 +14,11 @@ var myInit = { method: 'GET',
                cache: 'default' };
 
 
-var myRequest = new Request('http://localhost:5000/api/v2/users/orders');
+var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/users/orders');
 
 fetch(myRequest, myInit)
 .then((resp) =>	resp.json())
 .then((data) => {
-	console.log(data)
 	let orders = data.Orders
 	let output = `
 				<tr>

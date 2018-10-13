@@ -19,13 +19,12 @@ reg.addEventListener('submit', (e) => {
 	    })
 	};
 
-	var myRequest = new Request('http://localhost:5000/api/v2/auth/signup');
+	var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/auth/signup');
 
 	fetch(myRequest, myInit)
 	.then((res) => res.json())
 	.then((data) => {
 		message = data.message;
-		console.log(message);
 		alert('Register successfull')
 		window.location.href = "menu.html";
 	})

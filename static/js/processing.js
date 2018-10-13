@@ -31,7 +31,7 @@ function makeorder(e) {
 
 	console.log(myInit.body)
 
-	var myRequest = new Request('http://localhost:5000/api/v2/users/orders', myInit);
+	var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/users/orders', myInit);
 	fetch(myRequest)
 	.then(res => res.json())
 	.then(data => {

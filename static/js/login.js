@@ -5,7 +5,7 @@ const loginForm = document.getElementById('log');
 
 
 
-var myRequest = new Request('http://localhost:5000/api/v2/auth/login');
+var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/auth/login');
 
 
 function login(e) {
