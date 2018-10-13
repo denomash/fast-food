@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Fast food fast">
+    <meta name="keywords" content="Fast food">
+    <meta name="author" content="Dennis Macharia">
+    <title>Fast-Food-Fast | Addmeal</title>
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    
+  </head>
+  <body>
+   <header>
+    <div class="container">
+       <div id="logo">
+          <a href="menu.html">
+            <h1>Fast Food Fast</h1>
+          </a>  
+       </div>
+       <nav>
+         <ul>
+           <li><a href="items.html">Items</a></li>
+           <li><a href="orders.html">Orders</a></li>
+           <li><a href="confirm.html">Confirm</a></li>
+           <li onclick="logout()">logout</li>
+         </ul>
+       </nav>
+     </div>
+   </header>
+   <section>
+    <div  class="center">
+      <form id="addmeal">
+        <h1>Add a meal</h1>
+        <label><b>Image</b></label>
+        <input type="text" placeholder="Enter image url" id="image" required>
+
+        <label><b>Meal name</b></label>
+        <input type="text" placeholder="Enter name of the food item" id="meal" required>
+
+        <label><b>Price</b></label>
+        <input type="text" placeholder="Enter price of the food item" id="price" required>
+
+        <label><b>Description</b></label>
+        <input type="text" placeholder="Enter description of the food item" id="description" required>
+
+        <div>
+         <button type="submit">Add meal</button>
+        </div>
+                        
+      </form>
+    </div>
+   </section>   
+  <script type="text/javascript" src="../../static/js/addmeal.js"></script>
+  </body>
+</html>
