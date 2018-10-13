@@ -47,3 +47,11 @@ function makeorder(e) {
 	})
 	.catch(err => console.log(err))
 }
+
+function logout() {
+	// Remove data
+	localStorage.removeItem('x-access-token');
+	localStorage.removeItem('role');
+
+	window.location = "./login.html";
+}
