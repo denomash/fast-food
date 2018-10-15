@@ -2,14 +2,20 @@
 
 document.getElementById('processing').addEventListener('submit', makeorder)
 
+// Get stored token
+var stored_token = localStorage.getItem('x-access-token');
+console.log(stored_token)
 
+if (stored_token == 'null') {
+	document.getElementById('not').style.display = "none";
+
+} else if(stored_token !== 'null') {
+	document.getElementById('lg').style.display = "none";
+}
 
 function makeorder(e) {
 	e.preventDefault();
-
-	// Get stored token
-	var stored_token = localStorage.getItem('x-access-token');
-	
+		
 	var myHeaders = new Headers({
 		"Access-Control-Allow-Origin": "*/*",
 		"Content-Type": "application/json; charset=utf-8",
@@ -29,7 +35,7 @@ function makeorder(e) {
 	    })
 	};
 
-	console.log(myInit.body)
+
 
 	var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/users/orders', myInit);
 	fetch(myRequest)
