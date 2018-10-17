@@ -4,7 +4,6 @@ document.getElementById('processing').addEventListener('submit', makeorder)
 
 // Get stored token
 var stored_token = localStorage.getItem('x-access-token');
-console.log(stored_token)
 
 if (stored_token == 'null') {
 	document.getElementById('not').style.display = "none";

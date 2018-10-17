@@ -46,7 +46,6 @@ function login(e) {
 
 			alert('Logged in successfull')
 		} else {
-			console.log(data)
 			message = data.Message;
 			alert(message)
 		}

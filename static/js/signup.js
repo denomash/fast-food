@@ -24,8 +24,8 @@ reg.addEventListener('submit', (e) => {
 	fetch(myRequest, myInit)
 	.then((res) => res.json())
 	.then((data) => {
-		message = data.message;
-		alert('Register successfull')
+		message = data.Message;
+		alert(message)
 		window.location.href = "../index.html";
 	})
 })
