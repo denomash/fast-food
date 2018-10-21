@@ -48,11 +48,10 @@ function login(e) {
 		} else {
 			Message = data.Message;
 			message = document.getElementById('msg');
-			// message.style.color = "red"; 
-			// message.style.padding = "5px";
-			// message.style.width = "70%";
-			// message.style.display = "block";
-			// message.style.borderRadius = "5px";
+			message.style.backgroundColor = "lightblue";
+			message.style.width = "70%";
+			message.style.borderRadius = "5px";
+			message.style.padding = "5px";
 			message.innerHTML = Message;
 		}
 	})
