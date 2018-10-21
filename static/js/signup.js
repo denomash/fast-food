@@ -24,8 +24,17 @@ reg.addEventListener('submit', (e) => {
 	fetch(myRequest, myInit)
 	.then((res) => res.json())
 	.then((data) => {
-		message = data.Message;
-		alert(message)
-		window.location.href = "../index.html";
+		Message = data.Message;
+		
+		if(Message == 'New user created' || Message ==  'New admin user created') {
+			window.location.href = "../index.html";
+		} else {
+			message = document.getElementById('msg');
+			message.style.backgroundColor = "lightblue";
+			message.style.width = "70%";
+			message.style.borderRadius = "5px";
+			message.style.padding = "5px";
+			message.innerHTML = Message;			
+		}
 	})
 })
