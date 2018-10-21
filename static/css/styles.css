@@ -203,6 +203,15 @@ button:hover {
   font-size: 40px;
 }
 
+#logmsg {  
+  text-align: center;
+  font-weight: bold;
+}
+
+span.msg {
+  color: red;
+}
+
 #sidereg{
   margin: auto;
   float: left;

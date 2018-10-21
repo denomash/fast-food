@@ -46,8 +46,13 @@ function login(e) {
 
 			alert('Logged in successfull')
 		} else {
-			message = data.Message;
-			alert(message)
+			Message = data.Message;
+			message = document.getElementById('msg');
+			message.style.backgroundColor = "lightblue";
+			message.style.width = "70%";
+			message.style.borderRadius = "5px";
+			message.style.padding = "5px";
+			message.innerHTML = Message;
 		}
 	})
 }
