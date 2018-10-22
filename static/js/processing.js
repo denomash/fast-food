@@ -1,4 +1,5 @@
 
+document.getElementById('alert').style.display = "none";
 
 document.getElementById('processing').addEventListener('submit', makeorder)
 
@@ -51,8 +52,7 @@ function makeorder(e) {
 
 			
 		} else {
-			alert("Please login to place an order")
-		}
+			document.getElementById('alert').style.display = "block";		}
 	})
 	.catch(err => console.log(err))
 }
