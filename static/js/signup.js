@@ -8,6 +8,7 @@ reg.addEventListener('submit', (e) => {
 	var myHeaders = new Headers({
 	'Content-Type': 'application/json'
 	});
+	
 	var myInit = {
 		method: 'POST',
 	    headers: myHeaders,
@@ -25,10 +26,16 @@ reg.addEventListener('submit', (e) => {
 	.then((res) => res.json())
 	.then((data) => {
 		Message = data.Message;
-		
+
 		if(Message == 'New user created' || Message ==  'New admin user created') {
-			window.location.href = "../index.html";
+			redirect = () => {
+				window.location.href = "./login.html";
+			}
+
+			setTimeout(redirect, 1000);
+			
 		} else {
+
 			message = document.getElementById('msg');
 			message.style.backgroundColor = "lightblue";
 			message.style.width = "70%";

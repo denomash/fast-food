@@ -1,4 +1,5 @@
 
+document.getElementById('alert').style.display = "none";
 
 document.getElementById('processing').addEventListener('submit', makeorder)
 
@@ -49,10 +50,18 @@ function makeorder(e) {
 			message.style.padding = "5px";
 			message.innerHTML = Message;
 
+			redirect = () => {
+				if (Message == 'Food item has been ordered') {
+					location.replace("../index.html");
+				}
+			}
+
+			setTimeout(redirect, 1000);
 			
 		} else {
-			alert("Please login to place an order")
+			document.getElementById('alert').style.display = "block";
 		}
+
 	})
 	.catch(err => console.log(err))
 }

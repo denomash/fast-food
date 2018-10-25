@@ -207,12 +207,36 @@ button:hover {
 #logmsg {  
   text-align: center;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 span.msg {
   color: red;
 }
- 
+
+ /* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #5bc0de;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* close button */
+.closebtn {
+    float: right;
+    margin-left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* hover */
+.closebtn:hover {
+    color: black;
+} 
+
 #sidereg{
   margin: auto;
   float: left;
