@@ -41,9 +41,13 @@ function makeorder(e) {
 	.then(res => res.json())
 	.then(data => {
 		if(stored_token){
-			location.href = "../index.html";
-			Message = data.Message
-			alert(Message);
+			Message = data.Message;
+			message = document.getElementById('msg');
+			message.style.backgroundColor = "lightblue";
+			message.style.width = "70%";
+			message.style.borderRadius = "5px";
+			message.style.padding = "5px";
+			message.innerHTML = Message;
 
 			
 		} else {
