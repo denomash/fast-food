@@ -8,6 +8,7 @@ reg.addEventListener('submit', (e) => {
 	var myHeaders = new Headers({
 	'Content-Type': 'application/json'
 	});
+	
 	var myInit = {
 		method: 'POST',
 	    headers: myHeaders,
@@ -34,6 +35,7 @@ reg.addEventListener('submit', (e) => {
 			setTimeout(redirect, 1000);
 			
 		} else {
+
 			message = document.getElementById('msg');
 			message.style.backgroundColor = "lightblue";
 			message.style.width = "70%";
