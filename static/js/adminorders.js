@@ -41,7 +41,7 @@ fetch(myRequest, myInit)
 		        <td>${order.quantity}</td>
 		        <td>${order.status}</td>
 		        <td id="${order.order_id}" class="btn" onclick="accept(this.id)"><img src="../../static/img/acc.png"  height="40" width="40"></td>
-        		<td class="btn" onclick="decline()"><img src="../../static/img/decline.png"  height="40" width="40"></td>
+        		<td id="${order.order_id}" class="btn" onclick="decline(this.id)"><img src="../../static/img/decline.png"  height="40" width="40"></td>
 		    </tr>
 		`;
 	});
@@ -69,7 +69,6 @@ accept = (order_id) => {
 	fetch(myRequest)
 	.then((resp) =>	resp.json())
 	.then((data) => {
-		
 		Message = data.Message
 		message = document.getElementById('msg');
 		message.style.backgroundColor = "lightblue";
@@ -77,6 +76,48 @@ accept = (order_id) => {
 		message.style.borderRadius = "5px";
 		message.style.padding = "5px";
 		message.style.paddingBottom = "5px";
+		message.innerHTML = Message;
+
+		if(Message == 'Order status updated') {
+			reload = () => {
+				window.location.reload();
+			}
+
+			setTimeout(reload, 2000);
+			
+		}
+
+	})
+	.catch(err => console.log(err))
+}
+
+decline = (order_id) => {
+
+	let myIni = {
+		method: 'PUT',
+	    headers:  new Headers({
+			"Access-Control-Allow-Origin": "*/*",
+			"Content-Type": "application/json; charset=utf-8",
+			"x-access-token": stored_token
+		}),
+		mode: 'cors',
+		cache: 'default',
+	    body: JSON.stringify({
+	    	status: 'Cancelled'    	
+	    })
+	};
+
+	let myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/orders/${order_id}`, myIni);
+	
+	fetch(myRequest)
+	.then((resp) =>	resp.json())
+	.then((data) => {
+		Message = data.Message
+		message = document.getElementById('msg');
+		message.style.backgroundColor = "lightblue";
+		message.style.width = "70%";
+		message.style.borderRadius = "5px";
+		message.style.padding = "5px";
 		message.innerHTML = Message;
 
 		if(Message == 'Order status updated') {
