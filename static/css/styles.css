@@ -207,6 +207,7 @@ button:hover {
 #logmsg {  
   text-align: center;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 span.msg {
