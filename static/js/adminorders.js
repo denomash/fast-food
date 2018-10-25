@@ -69,6 +69,7 @@ accept = (order_id) => {
 	fetch(myRequest)
 	.then((resp) =>	resp.json())
 	.then((data) => {
+		
 		Message = data.Message
 		message = document.getElementById('msg');
 		message.style.backgroundColor = "lightblue";
