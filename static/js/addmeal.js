@@ -1,5 +1,13 @@
 
 
+// Get stored token
+var role = localStorage.getItem('role');
+
+if(role !== 'admin' || role == 'null') {
+	console.log('Seen')
+	window.location = "../../index.html";
+}
+
 document.getElementById('addmeal').addEventListener('submit', addmeal)
 
 
@@ -32,6 +40,13 @@ function addmeal(e) {
 	fetch(myRequest)
 	.then(res => res.json())
 	.then(data => {
+
+		let Message = data.Message
+
+		if (Message == 'Invalid token!'){
+			logout()
+		}
+
 		if(stored_token){
 			Message = data.Message
 			alert(Message);		

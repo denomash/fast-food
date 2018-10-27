@@ -1,6 +1,12 @@
 
 // Get stored token
 var stored_token = localStorage.getItem('x-access-token');
+var role = localStorage.getItem('role');
+
+if(role !== 'admin' || role == 'null') {
+	console.log('Seen')
+	window.location = "../../index.html";
+}
 
 var myHeaders = new Headers({
 	"Access-Control-Allow-Origin": "*/*",
@@ -20,6 +26,22 @@ fetch(myRequest, myInit)
 .then((resp) =>	resp.json())
 .then((data) => {
 	let orders = data.Orders
+	let Message = data.Message
+
+	if (orders == 'No order history'){
+		message = document.getElementById('msg');
+		dv = document.getElementById('logmsg');
+		dv.style.width = "100%";
+		dv.style.height = "150px";
+		dv.style.color = "red";
+		dv.style.borderRadius = "5px";
+		dv.style.boxShadow = "2px 2px 2px 2px #888888";
+		dv.style.paddingTop = "70px";
+		dv.innerHTML = orders;
+	} else if (Message == 'Invalid token!'){
+		logout()
+	}
+
 	let output = `
 				<tr>
 				    <th>Image</th>
@@ -46,6 +68,7 @@ fetch(myRequest, myInit)
 		`;
 	});
 	document.getElementById('content').innerHTML = output;
+
 })
 
 accept = (order_id) => {	
