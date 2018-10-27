@@ -7,10 +7,10 @@ document.getElementById('processing').addEventListener('submit', makeorder)
 var stored_token = localStorage.getItem('x-access-token');
 
 if (stored_token == 'null') {
-	document.getElementById('not').style.display = "none";
+	document.getElementById('lg').style.display = "none";
 
 } else if(stored_token !== 'null') {
-	document.getElementById('lg').style.display = "none";
+	document.getElementById('not').style.display = "none";
 }
 
 function makeorder(e) {
