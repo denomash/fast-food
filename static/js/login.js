@@ -2,9 +2,6 @@
 
 const loginForm = document.getElementById('log');
 
-
-
-
 var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/auth/login');
 
 

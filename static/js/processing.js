@@ -41,6 +41,12 @@ function makeorder(e) {
 	fetch(myRequest)
 	.then(res => res.json())
 	.then(data => {
+		let Message = data.Message
+
+		if (Message == 'Invalid token!'){
+			logout()
+		}
+
 		if(stored_token){
 			Message = data.Message;
 			message = document.getElementById('msg');

@@ -20,6 +20,7 @@ fetch(myRequest, myInit)
 .then((resp) =>	resp.json())
 .then((data) => {
 	let orders = data.Orders
+	let Message = data.Message
 
 	if (orders == 'No order history'){
 		message = document.getElementById('msg');
@@ -31,6 +32,8 @@ fetch(myRequest, myInit)
 		dv.style.boxShadow = "2px 2px 2px 2px #888888";
 		dv.style.paddingTop = "70px";
 		dv.innerHTML = orders;
+	} else if (Message == 'Invalid token!'){
+		logout()
 	}
 	let output = `
 				<tr>

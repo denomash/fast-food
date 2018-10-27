@@ -316,6 +316,14 @@ span.psw {
   text-align: center;
 }
 
+#addml{
+  width: 600px;
+  height: 480px;
+  box-shadow: 2px 2px 2px 2px #888888;
+  padding: 15px;
+  border-radius: 5px;
+}
+
 /*footer*/
 footer {
    background-color: red;
