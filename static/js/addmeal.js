@@ -4,7 +4,6 @@
 var role = localStorage.getItem('role');
 
 if(role !== 'admin' || role == 'null') {
-	console.log('Seen')
 	window.location = "../../index.html";
 }
 
