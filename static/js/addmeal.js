@@ -14,12 +14,12 @@ function addmeal(e) {
 	e.preventDefault();
 
 	// Get stored token
-	var stored_token = localStorage.getItem('x-access-token');
+	var storedToken = localStorage.getItem('x-access-token');
 	
 	var myHeaders = new Headers({
 		"Access-Control-Allow-Origin": "*/*",
 		"Content-Type": "application/json; charset=utf-8",
-		"x-access-token": stored_token
+		"x-access-token": storedToken
 	});
 
 	var myInit = {
@@ -46,7 +46,7 @@ function addmeal(e) {
 			logout()
 		}
 
-		if(stored_token){
+		if(storedToken){
 			Message = data.Message
 			alert(Message);		
 		}

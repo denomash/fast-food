@@ -1,11 +1,11 @@
 
 // Get stored token
-var stored_token = localStorage.getItem('x-access-token');
+var storedToken = localStorage.getItem('x-access-token');
 
 var myHeaders = new Headers({
 	"Access-Control-Allow-Origin": "*/*",
 	"Content-Type": "application/json; charset=utf-8",
-	"x-access-token": stored_token
+	"x-access-token": storedToken
 });
 
 var myInit = { method: 'GET',

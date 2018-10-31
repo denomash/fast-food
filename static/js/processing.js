@@ -4,16 +4,16 @@ document.getElementById('alert').style.display = "none";
 document.getElementById('processing').addEventListener('submit', makeorder)
 
 // Get stored token
-var stored_token = localStorage.getItem('x-access-token');
-var stored_role = localStorage.getItem('role');
+var storedToken = localStorage.getItem('x-access-token');
+var storedRole = localStorage.getItem('role');
 
-console.log(stored_token)
-console.log(stored_role)
+console.log(storedToken)
+console.log(storedRole)
 
-if (stored_token !== 'null' && stored_role !== 'null') {
+if (storedToken !== 'null' && storedRole !== 'null') {
 	document.getElementById('lg').style.display = "none";
 
-} else if(stored_token == 'null' && stored_role == 'null') {
+} else if(storedToken == 'null' && storedRole == 'null') {
 	document.getElementById('not').style.display = "none";
 }
 
@@ -23,7 +23,7 @@ function makeorder(e) {
 	var myHeaders = new Headers({
 		"Access-Control-Allow-Origin": "*/*",
 		"Content-Type": "application/json; charset=utf-8",
-		"x-access-token": stored_token
+		"x-access-token": storedToken
 	});
 
 	var myInit = {
@@ -32,7 +32,7 @@ function makeorder(e) {
 		mode: 'cors',
 		cache: 'default',
 	    body: JSON.stringify({
-	    	mealId: document.getElementById('meal_id').value,
+	    	mealId: document.getElementById('mealId').value,
 	    	quantity: document.getElementById('quantity').value,
 	    	address: document.getElementById('address').value
 	    	
@@ -51,7 +51,7 @@ function makeorder(e) {
 			logout()
 		}
 
-		if(stored_token){
+		if(storedToken){
 			Message = data.Message;
 			message = document.getElementById('msg');
 			message.style.backgroundColor = "lightblue";

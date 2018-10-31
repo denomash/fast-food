@@ -12,14 +12,14 @@ function order() {
     location.href = "UI/processing.html";
 }
 // Get stored token
-var stored_token = localStorage.getItem('x-access-token');
-var stored_role = localStorage.getItem('role');
+var storedToken = localStorage.getItem('x-access-token');
+var storedRole = localStorage.getItem('role');
 
-if (stored_token && stored_role == 'admin') {
+if (storedToken && storedRole == 'admin') {
 	document.getElementById('clnt').style.display = "none";
 	document.getElementById('not').style.display = "none";
 
-} else if(stored_token && stored_role == 'client') {
+} else if(storedToken && storedRole == 'client') {
 	document.getElementById('adm').style.display = "none";
 	document.getElementById('not').style.display = "none";
 } else {

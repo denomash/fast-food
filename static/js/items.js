@@ -1,6 +1,6 @@
 
 	// Get stored token
-var stored_token = localStorage.getItem('x-access-token');
+var storedToken = localStorage.getItem('x-access-token');
 var role = localStorage.getItem('role');
 
 if(role !== 'admin' || role == 'null') {
@@ -10,7 +10,7 @@ if(role !== 'admin' || role == 'null') {
 var myHeaders = new Headers({
 		"Access-Control-Allow-Origin": "*/*",
 		"Content-Type": "application/json; charset=utf-8",
-		"x-access-token": stored_token
+		"x-access-token": storedToken
 	});
 
 var myInit = { method: 'GET',
@@ -65,11 +65,11 @@ fetch(myRequest,myInit)
 	document.getElementById('content').innerHTML = output;
 })
 
-editMeal = (meal_id) => {
+editMeal = (mealId) => {
 	var myHeader = new Headers({
 		"Access-Control-Allow-Origin": "*/*",
 		"Content-Type": "application/json; charset=utf-8",
-		"x-access-token": stored_token
+		"x-access-token": storedToken
 	});
 
 	var myIn = { method: 'GET',
@@ -78,7 +78,7 @@ editMeal = (meal_id) => {
 	               cache: 'default' };
 
 
-	var myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/menu/${meal_id}`, myIn);
+	var myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/menu/${mealId}`, myIn);
 
 	fetch(myRequest)
 	.then((resp) =>	resp.json())
@@ -132,14 +132,14 @@ editMeal = (meal_id) => {
 
 }
 
-edit = (meal_id) => {	
+edit = (mealId) => {	
 
 	let myIni = {
 		method: 'PUT',
 	    headers:  new Headers({
 			"Access-Control-Allow-Origin": "*/*",
 			"Content-Type": "application/json; charset=utf-8",
-			"x-access-token": stored_token
+			"x-access-token": storedToken
 		}),
 		mode: 'cors',
 		cache: 'default',
@@ -151,7 +151,7 @@ edit = (meal_id) => {
 	    })
 	};
 
-	let myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/menu/${meal_id}`, myIni);
+	let myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/menu/${mealId}`, myIni);
 	fetch(myRequest)
 	.then((resp) =>	resp.json())
 	.then((data) => {
@@ -180,20 +180,20 @@ edit = (meal_id) => {
 	.catch(err => console.log(err))
 }
 
-deleteMeal = (meal_id) => {	
+deleteMeal = (mealId) => {	
 
 	let myIni = {
 		method: 'DELETE',
 	    headers:  new Headers({
 			"Access-Control-Allow-Origin": "*/*",
 			"Content-Type": "application/json; charset=utf-8",
-			"x-access-token": stored_token
+			"x-access-token": storedToken
 		}),
 		mode: 'cors',
 		cache: 'default'
 	};
 
-	let myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/menu/${meal_id}`, myIni);
+	let myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/menu/${mealId}`, myIni);
 	fetch(myRequest)
 	.then((resp) =>	resp.json())
 	.then((data) => {

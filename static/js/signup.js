@@ -1,6 +1,6 @@
 
 
-const reg = document.getElementById('reg_form')
+const reg = document.getElementById('regForm')
 
 reg.addEventListener('submit', (e) => {
 	e.preventDefault();
@@ -16,7 +16,7 @@ reg.addEventListener('submit', (e) => {
 	    	"username": document.getElementById('username').value,
 	    	"email": document.getElementById('email').value, 
 	    	"password": document.getElementById('password').value, 
-	    	"confirm_password": document.getElementById('confirm_password').value
+	    	"confirm_password": document.getElementById('confirmPassword').value
 	    })
 	};
 

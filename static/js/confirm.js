@@ -1,6 +1,6 @@
 
 // Get stored token
-var stored_token = localStorage.getItem('x-access-token');
+var storedToken = localStorage.getItem('x-access-token');
 var role = localStorage.getItem('role');
 
 if(role !== 'admin' || role == 'null') {
@@ -11,7 +11,7 @@ if(role !== 'admin' || role == 'null') {
 var myHeaders = new Headers({
 	"Access-Control-Allow-Origin": "*/*",
 	"Content-Type": "application/json; charset=utf-8",
-	"x-access-token": stored_token
+	"x-access-token": storedToken
 });
 
 var myInit = { method: 'GET',
@@ -68,14 +68,14 @@ fetch(myRequest, myInit)
 	document.getElementById('content').innerHTML = output;
 })
 
-complete = (order_id) => {	
+complete = (orderId) => {	
 
 	let myIni = {
 		method: 'PUT',
 	    headers:  new Headers({
 			"Access-Control-Allow-Origin": "*/*",
 			"Content-Type": "application/json; charset=utf-8",
-			"x-access-token": stored_token
+			"x-access-token": storedToken
 		}),
 		mode: 'cors',
 		cache: 'default',
@@ -84,7 +84,7 @@ complete = (order_id) => {
 	    })
 	};
 
-	let myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/orders/${order_id}`, myIni);
+	let myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/orders/${orderId}`, myIni);
 	
 	fetch(myRequest)
 	.then((resp) =>	resp.json())
