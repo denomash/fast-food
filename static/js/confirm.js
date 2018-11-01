@@ -28,7 +28,7 @@ fetch(myRequest, myInit)
 	let orders = data.Orders
 	let Message = data.Message
 
-	if (orders == 'No order history'){
+	if (orders == 'No orders found'){
 		message = document.getElementById('msg');
 		dv = document.getElementById('logmsg');
 		dv.style.width = "100%";
