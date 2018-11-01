@@ -320,8 +320,17 @@ span.psw {
   width: 600px;
   height: 480px;
   box-shadow: 2px 2px 2px 2px #888888;
-  padding: 15px;
+  padding: 40px;
   border-radius: 5px;
+}
+
+#ml {
+    width: 30%;
+    margin-left: 200px;
+}
+.plus{  
+  background: url("../img/add2.png");
+  color: black;
 }
 
 /*footer*/
