@@ -7,9 +7,6 @@ document.getElementById('processing').addEventListener('submit', makeorder)
 var storedToken = localStorage.getItem('x-access-token');
 var storedRole = localStorage.getItem('role');
 
-console.log(storedToken)
-console.log(storedRole)
-
 if (storedToken !== 'null' && storedRole !== 'null') {
 	document.getElementById('lg').style.display = "none";
 
@@ -43,35 +40,53 @@ function makeorder(e) {
 
 	var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/users/orders', myInit);
 	fetch(myRequest)
-	.then(res => res.json())
-	.then(data => {
-		let Message = data.Message
+	.then(res => {
 
-		if (Message == 'Invalid token!'){
-			logout()
-		}
-
-		if(storedToken){
-			Message = data.Message;
-			message = document.getElementById('msg');
-			message.style.backgroundColor = "lightblue";
-			message.style.width = "70%";
-			message.style.borderRadius = "5px";
-			message.style.padding = "5px";
-			message.innerHTML = Message;
+		if (storedToken !== 'null' && storedRole !== 'null') {
+			document.getElementById('alert').style.display = "block";
 
 			redirect = () => {
-				if (Message == 'Food item has been ordered') {
-					location.replace("../index.html");
-				}
+				location.replace("./login.html");
 			}
 
 			setTimeout(redirect, 2000);
-			
-		} else {
-			document.getElementById('alert').style.display = "block";
-		}
 
+		} else if (res.status == '401'){
+
+			logout()
+
+		} else if (res.status == '400') {
+
+			res.json().then((data) =>{
+				Message = data.Message;
+				message = document.getElementById('msg');
+				message.style.backgroundColor = "lightblue";
+				message.style.width = "70%";
+				message.style.borderRadius = "5px";
+				message.style.padding = "5px";
+				message.innerHTML = Message;
+				
+			})
+			
+		} else if (res.status == '201'){
+			res.json().then((data) =>{
+				Message = data.Message;
+				message = document.getElementById('msg');
+				message.style.backgroundColor = "lightblue";
+				message.style.width = "70%";
+				message.style.borderRadius = "5px";
+				message.style.padding = "5px";
+				message.innerHTML = Message;
+
+				redirect = () => {
+					location.replace("../index.html");
+				}
+
+				setTimeout(redirect, 2000);
+			})
+
+
+		}
 	})
 	.catch(err => console.log(err))
 }
