@@ -21,49 +21,62 @@ var myInit = { method: 'GET',
 
 var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/menu');
 fetch(myRequest,myInit)
-.then((resp) =>	resp.json())
-.then((data) => {
-	let meals = data.Meals
-	let Message = data.Message
+.then((resp) =>	{
 
-	if (meals == 'No meals found'){
-		message = document.getElementById('msg');
-		dv = document.getElementById('logmsg');
-		dv.style.width = "100%";
-		dv.style.height = "150px";
-		dv.style.color = "red";
-		dv.style.borderRadius = "5px";
-		dv.style.boxShadow = "2px 2px 2px 2px #888888";
-		dv.style.paddingTop = "70px";
-		dv.innerHTML = meals;
-	} else if (Message == 'Invalid token!'){
+	if (resp.status == '404'){
+
+		resp.json().then(function(data) {
+
+	        let meals = data.Meals
+	        message = document.getElementById('msg');
+			dv = document.getElementById('logmsg');
+			dv.style.width = "100%";
+			dv.style.height = "150px";
+			dv.style.color = "red";
+			dv.style.borderRadius = "5px";
+			dv.style.boxShadow = "2px 2px 2px 2px #888888";
+			dv.style.paddingTop = "70px";
+			dv.innerHTML = meals;
+
+		});
+
+	} else if (resp.status == '401'){
+
 		logout()
+
+	} else if (resp.status == '200'){
+
+		resp.json().then((data) => {
+
+			let meals = data.Meals
+
+			let output = `
+						<tr>
+						    <th>Image</th>
+						    <th>Item</th>
+						    <th>Price(Ksh)</th>
+						    <th>Edit</th>
+						    <th>Delete</th>
+					    </tr> 
+						`
+			
+			meals.forEach((meal) => {
+				output += `
+					<tr>
+				        <td><img src="${meal.image}" height="60" width="100"></td>
+				        <td>${meal.food}</td>
+				        <td>${meal.price}</td>
+				        <td class="btn" id="${meal.meal_id}" onclick="editMeal(this.id)"><img src="../../static/img/edit.png"  height="50" width="50"></td>
+				        <td class="btn" id="${meal.meal_id}" onclick="deleteMeal(this.id)"><img src="../../static/img/delete-512.png"  height="50" width="50"></td>
+		        	</tr>
+				`;
+			});
+
+			document.getElementById('content').innerHTML = output;
+		})
 	}
-
-	let output = `
-				<tr>
-				    <th>Image</th>
-				    <th>Item</th>
-				    <th>Price(Ksh)</th>
-				    <th>Edit</th>
-				    <th>Delete</th>
-			    </tr> 
-				`
-	
-	meals.forEach((meal) => {
-		output += `
-			<tr>
-		        <td><img src="${meal.image}" height="60" width="100"></td>
-		        <td>${meal.food}</td>
-		        <td>${meal.price}</td>
-		        <td class="btn" id="${meal.meal_id}" onclick="editMeal(this.id)"><img src="../../static/img/edit.png"  height="50" width="50"></td>
-		        <td class="btn" id="${meal.meal_id}" onclick="deleteMeal(this.id)"><img src="../../static/img/delete-512.png"  height="50" width="50"></td>
-        	</tr>
-		`;
-	});
-
-	document.getElementById('content').innerHTML = output;
 })
+
 
 editMeal = (mealId) => {
 	var myHeader = new Headers({
@@ -81,54 +94,65 @@ editMeal = (mealId) => {
 	var myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/menu/${mealId}`, myIn);
 
 	fetch(myRequest)
-	.then((resp) =>	resp.json())
-	.then((data) => {
-		let meals = data.Meals
-		let Message = data.Message
+	.then((resp) =>	{
+		if (resp.status == '404'){
 
-		if (meals == 'Meal with id does not exist'){
-			message = document.getElementById('msg');
-			dv = document.getElementById('logmsg');
-			dv.style.width = "100%";
-			dv.style.height = "150px";
-			dv.style.color = "red";
-			dv.style.borderRadius = "5px";
-			dv.style.boxShadow = "2px 2px 2px 2px #888888";
-			dv.style.paddingTop = "70px";
-			message.innerHTML = meals;
-		} else if (Message == 'Invalid token!'){
-			logout()
-		}
+			resp.json().then(function(data) {
 
-		let output = ''
-		
-		meals.forEach((meal) => {
-			output += `
-				<form id="addmeal">
-				<hr>
-		        <h1>Edit meal</h1>
-		        <label><b>Image</b></label>
-		        <input type="text" value="${meal.image}" id="image" required>
+		        let meals = data.Meals
+		        message = document.getElementById('msg');
+				dv = document.getElementById('logmsg');
+				dv.style.width = "100%";
+				dv.style.height = "150px";
+				dv.style.color = "red";
+				dv.style.borderRadius = "5px";
+				dv.style.boxShadow = "2px 2px 2px 2px #888888";
+				dv.style.paddingTop = "70px";
+				dv.innerHTML = meals;
 
-		        <label><b>Meal name</b></label>
-		        <input type="text" value="${meal.food}" id="meal" required>
+			});
 
-		        <label><b>Price</b></label>
-		        <input type="text" value="${meal.price}" id="price" required>
+			} else if (resp.status == '401'){
 
-		        <label><b>Description</b></label>
-		        <input type="text" value="${meal.description}" id="description" required>
+				logout()
 
-		        <div>
-		         <button id="${meal.meal_id}" onclick="edit(this.id)">Edit <i class="plus"></i></button>
-		        </div>
-		                        
-		      </form>
-			`;
-		});
-		document.getElementById('edit').innerHTML = output;
-		
-	})
+			} else if (resp.status == '200'){
+
+				resp.json().then((data) => {
+
+					let meals = data.Meals
+
+					let output = ''
+					
+					meals.forEach((meal) => {
+						output += `
+							<form id="addmeal">
+							<hr>
+					        <h1>Edit meal</h1>
+					        <label><b>Image</b></label>
+					        <input type="text" value="${meal.image}" id="image" required>
+
+					        <label><b>Meal name</b></label>
+					        <input type="text" value="${meal.food}" id="meal" required>
+
+					        <label><b>Price</b></label>
+					        <input type="text" value="${meal.price}" id="price" required>
+
+					        <label><b>Description</b></label>
+					        <input type="text" value="${meal.description}" id="description" required>
+
+					        <div>
+					         <button id="${meal.meal_id}" onclick="edit(this.id)">Edit <i class="plus"></i></button>
+					        </div>
+					                        
+					      </form>
+						`;
+					});
+					document.getElementById('edit').innerHTML = output;
+					
+				})
+			}
+	})	
 
 }
 
@@ -153,10 +177,27 @@ edit = (mealId) => {
 
 	let myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/menu/${mealId}`, myIni);
 	fetch(myRequest)
-	.then((resp) =>	resp.json())
+	.then((resp) =>	{
+		if (resp.status == '204'){
+
+			reload = () => {
+				window.location.reload();
+			}
+
+			setTimeout(reload, 1000);
+
+		} else if (resp.status == '401'){
+
+			logout()
+
+		} else if (resp.status == '400') {
+
+			return Promise.resolve(resp.json())
+
+		}
+	})
 	.then((data) => {
 		Message = data.Message
-		console.log(Message)
 		message = document.getElementById('msg');
 		message.style.backgroundColor = "lightblue";
 		message.style.width = "70%";
@@ -164,17 +205,6 @@ edit = (mealId) => {
 		message.style.padding = "5px";
 		message.style.paddingBottom = "5px";
 		message.innerHTML = Message;
-
-		if(Message == 'Meal updated successfully') {
-			reload = () => {
-				window.location.reload();
-			}
-
-			setTimeout(reload, 1000);
-			
-		} else if (Message == 'Invalid token!'){
-			logout()
-		}
 
 	})
 	.catch(err => console.log(err))
@@ -195,7 +225,26 @@ deleteMeal = (mealId) => {
 
 	let myRequest = new Request(`https://fast-food--app-v2.herokuapp.com/api/v2/menu/${mealId}`, myIni);
 	fetch(myRequest)
-	.then((resp) =>	resp.json())
+	.then((resp) =>	{
+
+		if (resp.status == '204'){
+
+			reload = () => {
+				window.location.reload();
+			}
+
+			setTimeout(reload, 1000);
+
+		} else if (resp.status == '401'){
+
+			logout()
+
+		} else if (resp.status == '400') {
+
+			return Promise.resolve(resp.json())
+			
+		}
+	})
 	.then((data) => {
 		Message = data.Message
 		message = document.getElementById('msg');
@@ -204,18 +253,7 @@ deleteMeal = (mealId) => {
 		message.style.borderRadius = "5px";
 		message.style.padding = "5px";
 		message.style.paddingBottom = "5px";
-		message.innerHTML = Message;
-
-		if(Message == 'Meal Deleted successfully') {
-			reload = () => {
-				window.location.reload();
-			}
-
-			setTimeout(reload, 2000);
-			
-		} else if (Message == 'Invalid token!'){
-			logout()
-		}
+		message.innerHTML = Message;		
 
 	})
 	.catch(err => console.log(err))

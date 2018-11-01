@@ -23,25 +23,30 @@ reg.addEventListener('submit', (e) => {
 	var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/auth/signup');
 
 	fetch(myRequest, myInit)
-	.then((res) => res.json())
-	.then((data) => {
-		Message = data.Message;
+	.then((res) => {
 
-		if(Message == 'New user created' || Message ==  'New admin user created') {
+		if (res.status == '400'){
+
+			return Promise.resolve(res.json())
+
+		} else if (res.status == '201') {
+
 			redirect = () => {
 				window.location.href = "./login.html";
 			}
 
 			setTimeout(redirect, 1000);
-			
-		} else {
-
-			message = document.getElementById('msg');
-			message.style.backgroundColor = "lightblue";
-			message.style.width = "70%";
-			message.style.borderRadius = "5px";
-			message.style.padding = "5px";
-			message.innerHTML = Message;			
 		}
+	})
+	.then((data) => {
+		
+		Message = data.Message;
+
+		message = document.getElementById('msg');
+		message.style.backgroundColor = "lightblue";
+		message.style.width = "70%";
+		message.style.borderRadius = "5px";
+		message.style.padding = "5px";
+		message.innerHTML = Message;
 	})
 })

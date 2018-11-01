@@ -37,14 +37,19 @@ function addmeal(e) {
 
 	var myRequest = new Request('https://fast-food--app-v2.herokuapp.com/api/v2/menu', myInit);
 	fetch(myRequest)
-	.then(res => res.json())
+	.then(res => {
+
+		if (res.status == '401'){
+
+			logout()
+
+		} else {
+			return Promise.resolve(res.json())
+		}
+	})
 	.then(data => {
 
 		let Message = data.Message
-
-		if (Message == 'Invalid token!'){
-			logout()
-		}
 
 		if(storedToken){
 			Message = data.Message

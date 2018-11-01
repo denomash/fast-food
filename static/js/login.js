@@ -29,9 +29,6 @@ function login(e) {
 			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
 			localStorage.setItem('role', data.Message.role);
-			setAuthorizationHeader(token);
-
-			alert('Logged in successfull');
 
 			
 		} else if (data.Message.token && data.Message.role == 'client'){
@@ -39,9 +36,7 @@ function login(e) {
 			token = data.Message.token;
 			localStorage.setItem('x-access-token', token);
 			localStorage.setItem('role', data.Message.role);
-			setAuthorizationHeader(token);
 
-			alert('Logged in successfull')
 		} else {
 			Message = data.Message;
 			message = document.getElementById('msg');
