@@ -5,11 +5,15 @@ document.getElementById('processing').addEventListener('submit', makeorder)
 
 // Get stored token
 var stored_token = localStorage.getItem('x-access-token');
+var stored_role = localStorage.getItem('role');
 
-if (stored_token == 'null') {
+console.log(stored_token)
+console.log(stored_role)
+
+if (stored_token !== 'null' && stored_role !== 'null') {
 	document.getElementById('lg').style.display = "none";
 
-} else if(stored_token !== 'null') {
+} else if(stored_token == 'null' && stored_role == 'null') {
 	document.getElementById('not').style.display = "none";
 }
 
@@ -62,7 +66,7 @@ function makeorder(e) {
 				}
 			}
 
-			setTimeout(redirect, 1000);
+			setTimeout(redirect, 2000);
 			
 		} else {
 			document.getElementById('alert').style.display = "block";
