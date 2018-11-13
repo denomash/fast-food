@@ -1,4 +1,6 @@
 
+// document.getElementById('edit').style.display = "none";
+
 	// Get stored token
 var storedToken = localStorage.getItem('x-access-token');
 var role = localStorage.getItem('role');
@@ -66,8 +68,8 @@ fetch(myRequest,myInit)
 				        <td><img src="${meal.image}" height="60" width="100"></td>
 				        <td>${meal.food}</td>
 				        <td>${meal.price}</td>
-				        <td class="btn" id="${meal.meal_id}" onclick="editMeal(this.id)"><img src="../../static/img/edit.png"  height="50" width="50"></td>
-				        <td class="btn" id="${meal.meal_id}" onclick="deleteMeal(this.id)"><img src="../../static/img/delete-512.png"  height="50" width="50"></td>
+				        <td class="btn" id="${meal.meal_id}" onclick="editMeal(this.id)"><img src="../../static/img/edit.png"  height="45" width="45"></td>
+				        <td class="btn" id="${meal.meal_id}" onclick="deleteMeal(this.id)"><img src="../../static/img/delete-512.png"  height="45" width="45"></td>
 		        	</tr>
 				`;
 			});
@@ -127,7 +129,7 @@ editMeal = (mealId) => {
 					meals.forEach((meal) => {
 						output += `
 							<form id="addmeal">
-							<hr>
+							<div id="close" onclick="hide()">+</div>
 					        <h1>Edit meal</h1>
 					        <label><b>Image</b></label>
 					        <input type="text" value="${meal.image}" id="image" required>
@@ -148,12 +150,19 @@ editMeal = (mealId) => {
 					      </form>
 						`;
 					});
-					document.getElementById('edit').innerHTML = output;
+					editml = document.getElementById('overlayer');
+					content = document.getElementById('edit');
+					editml.style.display = "flex";
+					content.innerHTML = output;
 					
 				})
 			}
 	})	
 
+}
+
+hide = () =>{
+	document.getElementById('overlayer').style.display = "None";
 }
 
 edit = (mealId) => {	

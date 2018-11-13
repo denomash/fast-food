@@ -333,6 +333,44 @@ span.psw {
   color: black;
 }
 
+
+#overlayer{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+#edit{
+  width: 60%;
+  height: 550px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+#addmeal{
+  padding: 20px;
+  position: relative;
+}
+.dialog--active,
+.dialog--disabled{
+  transition: 0.2 ease;
+}
+
+#close{
+  position: absolute;
+  top: 0;
+  right: 15px;
+  transform: rotate(45deg);
+  font-size: 40px;
+  cursor: pointer;
+}
+
 /*footer*/
 footer {
    background-color: red;
